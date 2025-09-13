@@ -2,8 +2,20 @@ import React from 'react'
 import { AppContext } from '../context/AppContext'
 
 export default function Doctors() {
-  const doctors = React.useContext(AppContext)
-  console.log(doctors)
+  const doctors =  React.useContext(AppContext)
+  
+  const [selectedSpecialization, setSelectedSpecialization] = React.useState<string | null>(null)
+  const selected_Specialization = (specialization: string) => {
+    setSelectedSpecialization(specialization)
+  }
+  function FilterDoctor() {
+    if (selectedSpecialization) {
+      const filteredDoctors = doctors?.filter(doctor => doctor.specialization === selectedSpecialization)
+      return filteredDoctors
+    }
+
+    return doctors
+  }
 
   return (
     <>
@@ -13,25 +25,28 @@ export default function Doctors() {
         </div>
         <div className="flex  flex-col sm:flex-row items-start gap-5 mt-5">
           <div className="w-full sm:w-[600px] bg-cyan-800 text-white flex flex-col gap-2 text-sm rounded-md p-2">
-            <p className="w-full pl-3 py-1.5 border border-gray-300 rounded cursor-pointer">
+            <p onClick={()=>selected_Specialization("Cardiologist")} className="w-full pl-3 py-1.5 border border-gray-300 rounded cursor-pointer">
               Cardiologist
             </p>
-            <p className="w-full pl-3 py-1.5 border border-gray-300 rounded cursor-pointer">
+            <p  onClick={()=>selected_Specialization("Dermatologist")} className="w-full pl-3 py-1.5 border border-gray-300 rounded cursor-pointer">
               Dermatologist
             </p>
-            <p className="w-full pl-3 py-1.5 border border-gray-300 rounded cursor-pointer">
+            <p  onClick={()=>selected_Specialization("Neurologist")} className="w-full pl-3 py-1.5 border border-gray-300 rounded cursor-pointer">
               Neurologist
             </p>
-            <p className="w-full pl-3 py-1.5 border border-gray-300 rounded cursor-pointer">
+            <p  onClick={()=>selected_Specialization("Pediatrician")} className="w-full pl-3 py-1.5 border border-gray-300 rounded cursor-pointer">
               Pediatrician
             </p>
-            <p className="w-full pl-3 py-1.5 border border-gray-300 rounded cursor-pointer">
+            <p  onClick={()=>selected_Specialization("Orthopedic")} className="w-full pl-3 py-1.5 border border-gray-300 rounded cursor-pointer">
               Orthopedic
+            </p>
+            <p  onClick={()=>selected_Specialization("")} className="w-full pl-3 py-1.5 border border-gray-300 rounded cursor-pointer">
+              All
             </p>
           </div>
           <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1">
 
-            {doctors?.map((doctor, index) => (
+            {FilterDoctor()?.map((doctor, index) => (
               <div key={index} className="items-center rounded-lg shadow sm:flex bg-cyan-800 border-gray-700 ">
                 <img
                   className="w-1/2 min-w-[100px] p-1 rounded-lg sm:rounded-none sm:rounded-l-lg"
