@@ -20,7 +20,7 @@ const [tokken, setToken] = useState<boolean>(true)
         </li>
 
         <li className="py-1 group cursor-pointer">
-          <Link to="/doctors">Doctor</Link>
+          <Link to="/doctor">Doctor</Link>
           <hr className="w-3/5 m-auto border-none h-0.5 bg-cyan-700 transform scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-300" />
         </li>
 
