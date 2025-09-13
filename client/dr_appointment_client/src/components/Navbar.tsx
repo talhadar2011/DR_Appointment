@@ -11,7 +11,7 @@ const [tokken, setToken] = useState<boolean>(true)
     })
   } 
    return (
-    <header className="mb-2 w-full h-16 border-b-2 border-cyan-700 text-white flex justify-between items-center px-4">
+    <header className=" bg-white mb-2 w-full h-16 border-b-2 border-cyan-700 text-white flex justify-between items-center px-4 sticky top-0 z-50 ">
         <img fetchPriority="high" src={logo} width={"180px"} height={"120px"} alt="logo" className="h-30 cursor-pointer" />
       <ul className="hidden md:flex gap-6 items-center text-black font-medium">
         <li className="py-1 group cursor-pointer">
