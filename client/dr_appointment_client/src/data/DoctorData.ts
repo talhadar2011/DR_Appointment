@@ -4,7 +4,7 @@ import type { DoctorType } from "../type";
 const doctors: DoctorType[] = [
   // Cardiologists
   {
-    id: 1,
+    id: "1",
     name: "Dr. Arjun Mehta",
     specialization: "Cardiologist",
     age: 45,
@@ -15,7 +15,7 @@ const doctors: DoctorType[] = [
     rating: 4.8,
   },
   {
-    id: 2,
+    id: "2",
     name: "Dr. Kavita Rao",
     specialization: "Cardiologist",
     age: 52,
@@ -26,7 +26,7 @@ const doctors: DoctorType[] = [
     rating: 4.9,
   },
   {
-    id: 3,
+    id: "3",
     name: "Dr. Michael Thompson",
     specialization: "Cardiologist",
     age: 49,
@@ -37,7 +37,7 @@ const doctors: DoctorType[] = [
     rating: 4.7,
   },
   {
-    id: 4,
+    id: "4",
     name: "Dr. Neha Verma",
     specialization: "Cardiologist",
     age: 39,
@@ -50,7 +50,7 @@ const doctors: DoctorType[] = [
 
   // Neurologists
   {
-    id: 5,
+    id: "5",
     name: "Dr. Emily Johnson",
     specialization: "Neurologist",
     age: 50,
@@ -61,7 +61,7 @@ const doctors: DoctorType[] = [
     rating: 4.9,
   },
   {
-    id: 6,
+    id: "6",
     name: "Dr. Ramesh Gupta",
     specialization: "Neurologist",
     age: 46,
@@ -72,7 +72,7 @@ const doctors: DoctorType[] = [
     rating: 4.8,
   },
   {
-    id: 7,
+    id: "7",
     name: "Dr. Sarah Miller",
     specialization: "Neurologist",
     age: 42,
@@ -83,7 +83,7 @@ const doctors: DoctorType[] = [
     rating: 4.7,
   },
   {
-    id: 8,
+    id: "8",
     name: "Dr. Omar Farooq",
     specialization: "Neurologist",
     age: 55,
@@ -96,7 +96,7 @@ const doctors: DoctorType[] = [
 
   // Orthopedic
   {
-    id: 9,
+    id: "9",
     name: "Dr. Rakesh Sharma",
     specialization: "Orthopedic",
     age: 42,
@@ -107,7 +107,7 @@ const doctors: DoctorType[] = [
     rating: 4.6,
   },
   {
-    id: 10,
+    id: "10",
     name: "Dr. Anna Petrova",
     specialization: "Orthopedic",
     age: 47,
@@ -118,7 +118,7 @@ const doctors: DoctorType[] = [
     rating: 4.8,
   },
   {
-    id: 11,
+    id: "11",
     name: "Dr. David Brown",
     specialization: "Orthopedic",
     age: 44,
@@ -129,7 +129,7 @@ const doctors: DoctorType[] = [
     rating: 4.7,
   },
   {
-    id: 12,
+    id: "12",
     name: "Dr. Li Wei",
     specialization: "Orthopedic",
     age: 53,
@@ -142,7 +142,7 @@ const doctors: DoctorType[] = [
 
   // Pediatricians
   {
-    id: 13,
+    id: "13",
     name: "Dr. Aisha Khan",
     specialization: "Pediatrician",
     age: 40,
@@ -153,7 +153,7 @@ const doctors: DoctorType[] = [
     rating: 4.8,
   },
   {
-    id: 14,
+    id: "14",
     name: "Dr. Carlos Rivera",
     specialization: "Pediatrician",
     age: 38,
@@ -164,7 +164,7 @@ const doctors: DoctorType[] = [
     rating: 4.7,
   },
   {
-    id: 15,
+    id: "15",
     name: "Dr. Neha Kapoor",
     specialization: "Pediatrician",
     age: 43,
@@ -175,7 +175,7 @@ const doctors: DoctorType[] = [
     rating: 4.6,
   },
   {
-    id: 16,
+    id: "16",
     name: "Dr. James Wilson",
     specialization: "Pediatrician",
     age: 41,
@@ -188,7 +188,7 @@ const doctors: DoctorType[] = [
 
   // Dermatologists
   {
-    id: 17,
+    id: "17",
     name: "Dr. Sophia Martinez",
     specialization: "Dermatologist",
     age: 37,
@@ -199,7 +199,7 @@ const doctors: DoctorType[] = [
     rating: 4.7,
   },
   {
-    id: 18,
+    id: "18",
     name: "Dr. Priya Deshmukh",
     specialization: "Dermatologist",
     age: 39,
@@ -210,7 +210,7 @@ const doctors: DoctorType[] = [
     rating: 4.6,
   },
   {
-    id: 19,
+    id: "19",
     name: "Dr. Hannah Lee",
     specialization: "Dermatologist",
     age: 36,
@@ -221,7 +221,7 @@ const doctors: DoctorType[] = [
     rating: 4.5,
   },
   {
-    id: 20,
+    id: "20",
     name: "Dr. Fatima Zahra",
     specialization: "Dermatologist",
     age: 51,

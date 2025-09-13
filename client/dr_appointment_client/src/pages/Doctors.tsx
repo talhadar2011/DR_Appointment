@@ -48,6 +48,7 @@ export default function Doctors() {
           <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1">
 
             {FilterDoctor()?.map((doctor, index) => (
+
               <div key={index} className="items-center rounded-lg  sm:flex bg-cyan-800 border-gray-700 shadow-cyan-800 ">
                <Link to="/doctor/$doctorId" params={{ doctorId: doctor.id }} >
                    <img

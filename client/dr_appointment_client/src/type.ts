@@ -1,5 +1,5 @@
 export type DoctorType = {
-    id:string|number
+    id:string
     name: string
     specialization: string
     age: number
