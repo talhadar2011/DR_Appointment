@@ -1,5 +1,6 @@
 import React from 'react'
 import { AppContext } from '../context/AppContext'
+import { Link } from '@tanstack/react-router'
 
 export default function Doctors() {
   const doctors =  React.useContext(AppContext)
@@ -48,7 +49,8 @@ export default function Doctors() {
 
             {FilterDoctor()?.map((doctor, index) => (
               <div key={index} className="items-center rounded-lg shadow sm:flex bg-cyan-800 border-gray-700 ">
-                <img
+               <Link to="/doctor/$doctorId" params={{ doctorId: doctor.id }} >
+                   <img
                   className="w-1/2 min-w-[100px] p-1 rounded-lg sm:rounded-none sm:rounded-l-lg"
                   src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
                   alt="Hero image"
@@ -61,12 +63,14 @@ export default function Doctors() {
 
                 <div className="p-5">
                   <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    <a href="#">{doctor.name}</a>
+                    {doctor.name}
                   </h3>
                   <span className="text-gray-500 dark:text-gray-200">{doctor.specialization}</span>
                   <p className="mt-3 mb-4 font-light text-gray-0 dark:text-gray-200">{doctor.degrees}</p>
 
                 </div>
+               </Link>
+               
               </div>
 
             ))}
