@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
 import { Link, useNavigate } from '@tanstack/react-router';
-import logo from '../assets/logo.png'
+import logo from '../assets/Logo_s_c.webp'
+import { useState } from 'react';
 export default function Navbar() {
 const navigate = useNavigate()
-const [showMenu, setShowMenu] = React.useState<boolean>(false)
-const [tokken, setToken] = React.useState<boolean>(true)
+// const [showMenu, setShowMenu] = React.useState<boolean>(false)
+const [tokken, setToken] = useState<boolean>(true)
   const LoginButton= () => {
     navigate({
       to: '/login',
@@ -12,15 +12,15 @@ const [tokken, setToken] = React.useState<boolean>(true)
   } 
    return (
     <header className="mb-2 w-full h-16 border-b-2 border-cyan-700 text-white flex justify-between items-center px-4">
-        <img src={logo} alt="logo" className="h-30 cursor-pointer" />
+        <img fetchPriority="high" src={logo} width={"180px"} height={"120px"} alt="logo" className="h-30 cursor-pointer" />
       <ul className="hidden md:flex gap-6 items-center text-black font-medium">
         <li className="py-1 group cursor-pointer">
-          <Link to="/">Home</Link>
+          <Link to="/">Homes</Link>
           <hr className="w-3/5 m-auto border-none h-0.5 bg-cyan-700 transform scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-300" />
         </li>
 
         <li className="py-1 group cursor-pointer">
-          <Link to="/appointments">Doctor</Link>
+          <Link to="/doctors">Doctor</Link>
           <hr className="w-3/5 m-auto border-none h-0.5 bg-cyan-700 transform scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-300" />
         </li>
 
@@ -39,6 +39,8 @@ const [tokken, setToken] = React.useState<boolean>(true)
             tokken?
             <div className="flex items-center gap-2 cursor-pointer relative group">
   <img
+  width={"32px"}
+  height={"32px"}
     src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
     alt="profile"
     className="w-8 rounded-full"

@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Outlet, createRootRoute } from '@tanstack/react-router'
-import Navbar from '../components/Navbar'
-
+const Navbar = React.lazy(() => import('../components/Navbar'))
 export const Route = createRootRoute({
   component: RootComponent,
 })
