@@ -15,7 +15,7 @@ export default function SpecialistMenu() {
       </div> 
       <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
           <div className="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-cyan-800 dark:border-gray-700">
-              <a href="#">
+              <div>
                 <img 
                 src={doc1}
                 alt="Hero image"
@@ -25,10 +25,10 @@ export default function SpecialistMenu() {
                 loading="eager"
                 decoding="async"
                 />
-              </a>
+              </div>
               <div className="p-5">
                   <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      <a >Dr Bonnie Green</a>
+                      <div >Dr Bonnie Green</div>
                   </h3>
                   <span className="text-gray-500 dark:text-gray-200">CEO & Web Developer</span>
                   <p className="mt-3 mb-4 font-light text-gray-0 dark:text-gray-200">Bonnie drives the technical strategy of the flowbite platform and brand.</p>
@@ -36,12 +36,12 @@ export default function SpecialistMenu() {
               </div>
           </div> 
           <div className="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-cyan-800 dark:border-gray-700">
-              <a href="#">
+              <div>
                   <img   width={"227px"} height={"227px"} className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src={doc2} alt="Jese Avatar"/>
-              </a>
+              </div>
               <div className="p-5">
                   <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      <a >Dr Jese Leos</a>
+                      <div >Dr Jese Leos</div>
                   </h3>
                   <span className="text-gray-500 dark:text-gray-200">Cardiologist</span>
                   <p className="mt-3 mb-4 font-light text-gray-200 dark:text-gray-200">Jese drives the technical strategy of the flowbite platform and brand.</p>
@@ -49,12 +49,12 @@ export default function SpecialistMenu() {
               </div>
           </div> 
           <div className="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-cyan-800 dark:border-gray-700">
-              <a >
+              <div >
                   <img   width={"227px"} height={"227px"} className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src={doc3} alt="Michael Avatar"/>
-              </a>
+              </div>
               <div className="p-5">
                   <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      <a >Dr Michael Gough</a>
+                      <div >Dr Michael Gough</div>
                   </h3>
                   <span className="text-gray-500 dark:text-gray-200">Senior Front-end Developer</span>
                   <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-200">Michael drives the technical strategy of the flowbite platform and brand.</p>
@@ -62,12 +62,12 @@ export default function SpecialistMenu() {
               </div>
           </div> 
           <div className="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-cyan-800 dark:border-gray-700">
-              <a href="#">
+              <div>
                   <img   width={"227px"} height={"227px"} className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src={doc4} alt="Sofia Avatar"/>
-              </a>
+              </div>
               <div className="p-5">
                   <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      <a >Dr Lana Byrd</a>
+                      <div >Dr Lana Byrd</div>
                   </h3>
                   <span className="text-gray-500 dark:text-gray-200">Marketing & Sale</span>
                   <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-200">Lana drives the technical strategy of the flowbite platform and brand.</p>
