@@ -25,7 +25,7 @@ export default function Doctors() {
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-cyan-800">Our Team Of Doctors</h2>
         </div>
         <div className="flex  flex-col sm:flex-row items-start gap-5 mt-5 ">
-          <div className="w-full sm:w-[600px] bg-cyan-800 text-white flex flex-col gap-2 text-sm rounded-md p-2 sticky  top-17 sm:top-20 ">
+          <div className="w-full sm:w-[200px] bg-cyan-800 text-white flex flex-col gap-2 text-sm rounded-md p-2 sticky  top-17 sm:top-20 ">
             <p onClick={()=>selected_Specialization("Cardiologist")} className="w-full pl-3 py-1.5 border border-gray-300 rounded cursor-pointer hover:bg-white hover:text-cyan-800">
               Cardiologist
             </p>
@@ -45,18 +45,18 @@ export default function Doctors() {
               All
             </p>
           </div>
-          <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1">
+          <div className="grow grid gap-8 p-2 mb-6  sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-2 xl:grid-cols-3  ">
 
             {FilterDoctor()?.map((doctor, index) => (
 
-              <div key={index} className="items-center rounded-lg  sm:flex bg-cyan-800 border-gray-700 shadow-cyan-800 ">
-               <Link to="/doctor/$doctorId" params={{ doctorId: doctor.id }} >
+              <div key={index} className=" rounded-lg  bg-cyan-800    ">
+          
+             <Link to="/doctor/$doctorId" params={{ doctorId: doctor.id }} >
                    <img
-                  className="w-1/2 min-w-[100px] p-1 rounded-lg sm:rounded-none sm:rounded-l-lg"
+                  className="xl:w-xs  p-1 rounded-lg sm:rounded-none sm:rounded-l-lg"
                   src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
                   alt="Hero image"
-                  width={200}
-                  height={200}
+                 
                   fetchPriority="high"
                   loading="eager"
                   decoding="async"
