@@ -2,18 +2,15 @@ import React, { useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
 
 export default function DoctorDetail({ doctorId }: { doctorId: string }) {
-  console.log(doctorId, "props in DoctorDetail");
   const doctors = React.useContext(AppContext)
   const doctor = doctors?.find(doc => doc.id == doctorId)
-  console.log(doctor, "doctor in DoctorDetail");
 
   //Creating Time Solts for Appointment
 
   const [AppointmentSlots, setAppointmentSlots] = useState([])
-  const [AppointmentDay, setAppointmentDay] = useState(0)
+  console.log(AppointmentSlots,"SLOTS")
+  const [AppointmentDay_Index, setAppointmentDay_Index] = useState(0)
   const [AppointmentTime, setAppointmentTime] = useState([])
-  console.log(AppointmentSlots, "Slots")
-  console.log(AppointmentTime, "TIME")
   const getAppointmentSlots = async () => {
     setAppointmentSlots([])
 
@@ -23,8 +20,9 @@ export default function DoctorDetail({ doctorId }: { doctorId: string }) {
     const slots = [];
     const startHour = 8
     const endHour = 14
+    const isBooked=false
     for (let hour = startHour; hour < endHour; hour++) {
-      slots.push(`${hour}:00`);
+      slots.push({Time:`${hour}:00`,isBooked:isBooked});
     }
     // slots.push(`${endHour}:00`);
     setAppointmentTime(slots)
@@ -33,8 +31,11 @@ export default function DoctorDetail({ doctorId }: { doctorId: string }) {
       const day = current.getDay();
       if (day !== 0 && day !== 6) {
         workingSlots.push(
-
-          new Date(current).toDateString().slice(4, 10)
+          {
+            date: new Date(current).toDateString().slice(4, 10),
+            time:slots
+          }
+         
 
         );
       }
@@ -43,10 +44,24 @@ export default function DoctorDetail({ doctorId }: { doctorId: string }) {
 
 
   }
-  const handleSelectedTime=(selectedTime)=>{  
-    const unbookedTime=AppointmentTime.filter((time)=> time!==selectedTime)
-    console.log(unbookedTime)
-    setAppointmentTime(unbookedTime)
+  const handleSelectedTime=(selectedTime,selectedDate)=>{  
+    const updatedSlots = AppointmentSlots.map(slot => {
+    if (slot.date === selectedDate) {
+      return {
+        ...slot,
+        time: slot.time.map(t =>
+          t.Time === selectedTime ? { ...t, isBooked: true } : t
+        )
+      };
+    }
+    return slot;
+  });
+    console.log(updatedSlots,"Udated")
+   setAppointmentSlots(updatedSlots);
+
+}
+  const handleAppointmentDay_index=(index)=>{
+    setAppointmentDay_Index(index)
   }
 
   useEffect(() => {
@@ -74,45 +89,64 @@ export default function DoctorDetail({ doctorId }: { doctorId: string }) {
         <div className="flex justify-center gap-4 mb-10">
           {
             AppointmentSlots.map((day, index) => (
-              <>
                 <button
+                onClick={()=>handleAppointmentDay_index(index)}
                   key={index}
-                  className=" cursor-pointer w-16  h-16 rounded-lg border flex flex-col items-center justify-center hover:bg-cyan-500 hover:text-white"
+                  className={`${AppointmentDay_Index===index? "bg-white text-cyan-800":""} cursor-pointer w-16  h-16 rounded-lg border flex flex-col items-center justify-center hover:bg-cyan-500 hover:text-white`}
                 >
                   <span className="font-medium">
-                    {day}
+                    {day.date}
 
                   </span>
                   <br></br>
 
                 </button>
 
-              </>
             ))
           }
 
 
         </div>
         <div className="flex justify-center gap-4 mb-10">
-          {
-            AppointmentTime.map((time, index) => (
-              <>
-                <button
-                onClick={()=>handleSelectedTime(time)}
+          { 
+            AppointmentSlots.map((time, index) => (
+            (AppointmentDay_Index==index)?
+            (
+
+                  time.time.map((slottime,index)=>(
+              !slottime.isBooked &&(
+                     <button
+                onClick={()=>handleSelectedTime(slottime.Time,time.date)}
                   key={index}
                   className=" cursor-pointer w-16  h-16 rounded-lg border flex flex-col items-center justify-center hover:bg-cyan-500 hover:text-white"
                 >
+                
                   <span className="font-medium">
-                    {time}
+                    {
+                    slottime.Time}
 
                   </span>
                   <br></br>
 
                 </button>
+                )
+            
+            )
+          )
 
-              </>
-            ))
-          }
+            ):
+            ("")
+
+            
+          
+          ))
+        }
+                
+              
+               
+          
+              
+          
 
 
         </div>
