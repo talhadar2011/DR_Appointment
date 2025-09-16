@@ -10,6 +10,17 @@ export const getDoctors=async(req,res)=>{
         res.status(400).json({message:err})
     }
 }
+export const getDoctorById=async(req,res)=>{
+    try{
+        const{id}=req.params
+        console.log(id,"ID")
+        const Doctor= await doctorModel.findOne({_id:id})
+        res.status(200).json(Doctor) 
+    }
+    catch(err){
+        res.status(500).json({message:err.message})
+    }
+}
 export const addDoctor=async(req,res)=>{
     const { name,
         email,

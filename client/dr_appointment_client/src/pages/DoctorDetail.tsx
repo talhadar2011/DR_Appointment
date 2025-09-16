@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
 
 export default function DoctorDetail({ doctorId }: { doctorId: string }) {
-  const doctors = React.useContext(AppContext)
-  const doctor = doctors?.find(doc => doc.id == doctorId)
-
+  // const doctors = React.useContext(AppContext)
+  // const doctor = doctors?.find(doc => doc.id == doctorId)
+      const[doctor,setDoctor]=useState(null)
   //Creating Time Solts for Appointment
 
   const [AppointmentSlots, setAppointmentSlots] = useState([])
@@ -66,12 +66,29 @@ export default function DoctorDetail({ doctorId }: { doctorId: string }) {
 
   useEffect(() => {
     getAppointmentSlots()
+    const fetchData = async () => {
+      try {
+        //setLoading(true);
+        console.log(doctorId,"ID")
+        const res = await fetch("http://localhost:5000/api/doctor/getDoctor/"+doctorId); // Replace with your backend URL
+        if (!res.ok) throw new Error("Failed to fetch data");
+        const json = await res.json();
+        console.log(json,"json")
+        setDoctor(json);
+      } catch (err) {
+        // setError(err.message);
+      } finally {
+        // setLoading(false);
+      }
+    };
+
+    fetchData();
 
   }, [doctorId])
   return (
     <div className=" bg-cyan-800 rounded mt-10">
       <div className="flex flex-col gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-        <img className="w-3/4 hidden dark:block" fetchPriority="high" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="dashboard image" />
+        <img className="w-3/4 hidden dark:block" fetchPriority="high" src={doctor?.image} alt="dashboard image" />
         <div className="mt-4 md:mt-0">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{doctor?.name}</h2>
           <p className="mb-6 font-bold text-gray-500 md:text-lg dark:text-white">{doctor?.specialization}</p>
