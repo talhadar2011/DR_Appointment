@@ -4,7 +4,7 @@ import { Link } from '@tanstack/react-router'
 
 export default function Doctors() {
   const doctors =  React.useContext(AppContext)
-  
+  console.log(doctors,"DOCTORS")
   const [selectedSpecialization, setSelectedSpecialization] = React.useState<string | null>(null)
   const selected_Specialization = (specialization: string) => {
     setSelectedSpecialization(specialization)
@@ -51,7 +51,7 @@ export default function Doctors() {
 
               <div key={index} className=" rounded-lg  bg-cyan-800    ">
           
-             <Link to="/doctor/$doctorId" params={{ doctorId: doctor.id }} >
+             <Link to="/doctor/$doctorId" params={{ doctorId: doctor._id }} >
                    <img
                   className="xl:w-xs  p-1 rounded-lg sm:rounded-none sm:rounded-l-lg"
                   src="https://cdn-icons-png.flaticon.com/512/149/149071.png"

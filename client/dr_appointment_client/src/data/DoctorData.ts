@@ -18,6 +18,7 @@ const doctors: DoctorType[] = [
     id: "2",
     name: "Dr. Kavita Rao",
     specialization: "Cardiologist",
+    
     age: 52,
     yearsOfExperience: 27,
     degrees: ["MBBS", "DM (Cardiology)"],
@@ -176,7 +177,7 @@ const doctors: DoctorType[] = [
   },
   {
     id: "16",
-    name: "Dr. James Wilson",
+    name: "Dr. Neha Kapoor",
     specialization: "Pediatrician",
     age: 41,
     yearsOfExperience: 15,
