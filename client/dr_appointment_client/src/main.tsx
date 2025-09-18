@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import './index.css'
 import AppContextProvider from './context/AppContext'
+
+import { QueryClientProvider,QueryClient } from '@tanstack/react-query'
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
 
@@ -15,16 +17,16 @@ declare module '@tanstack/react-router' {
     router: typeof router
   }
 }
-
+const client=new QueryClient()
 // Render the app
 const rootElement = document.getElementById('root')!
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
-    <StrictMode>
+    <QueryClientProvider client={client}>
       <AppContextProvider>
         <RouterProvider router={router} />
       </AppContextProvider>
-    </StrictMode>,
+    </QueryClientProvider>  
   )
 }

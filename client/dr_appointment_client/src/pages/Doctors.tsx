@@ -4,18 +4,18 @@ import { Link } from '@tanstack/react-router'
 
 export default function Doctors() {
   const doctors =  React.useContext(AppContext)
-  console.log(doctors,"DOCTORS")
+  console.log(doctors.data,"DOCTORS")
   const [selectedSpecialization, setSelectedSpecialization] = React.useState<string | null>(null)
   const selected_Specialization = (specialization: string) => {
     setSelectedSpecialization(specialization)
   }
   function FilterDoctor() {
     if (selectedSpecialization) {
-      const filteredDoctors = doctors?.filter(doctor => doctor.specialization === selectedSpecialization)
+      const filteredDoctors = doctors.data?.filter(doctor => doctor.specialization === selectedSpecialization)
       return filteredDoctors
     }
 
-    return doctors
+    return doctors.data
   }
 
   return (
