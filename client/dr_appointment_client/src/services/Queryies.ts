@@ -5,14 +5,19 @@ export function useGetAllDoctors (){
 
     return useQuery({
         queryKey:["GetAllDocors"],
-        queryFn:getAllDoctors
+        queryFn:getAllDoctors,
+        staleTime: 1000 * 60*5 ,
+
     })
 }
 
 export function useGetDoctorById(id:string){
     return useQuery({
-        queryKey:["GetDoctorByID"],
-        queryFn:()=>getDoctorByID(id)
-    })
+        queryKey:["GetDoctorByID",id],
+        queryFn:()=>getDoctorByID(id),
+        // check if we already have data in cache
+      staleTime: 1000 * 60 *5,
 
+    })
+    
 }

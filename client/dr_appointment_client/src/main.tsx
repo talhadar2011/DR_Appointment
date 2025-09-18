@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import './index.css'
 import AppContextProvider from './context/AppContext'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import { QueryClientProvider,QueryClient } from '@tanstack/react-query'
 // Import the generated route tree
@@ -27,6 +28,8 @@ if (!rootElement.innerHTML) {
       <AppContextProvider>
         <RouterProvider router={router} />
       </AppContextProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+
     </QueryClientProvider>  
   )
 }
